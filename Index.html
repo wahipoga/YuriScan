@@ -2,9 +2,204 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Teste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YuriScan - Mangás Yuri/GL</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ajustes específicos da página inicial */
+        .hero {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff7b9c, #ffa7b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(145deg, #1a1217, #1e1a1d);
+            border-left: 8px solid var(--accent);
+            border-radius: 0 20px 20px 0;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .warning-box h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .warning-box p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .warning-box strong {
+            color: var(--accent);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            border-left: 6px solid var(--accent);
+            padding-left: 1rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <nav class="navbar">
+        <a href="/" class="logo">YuriScan</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="pesquisa.html">Todos os Mangás</a>
+            <a href="contato.html">Contato</a>
+            <a href="#" class="discord-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.376 10.376 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.01c.12.098.246.198.372.292a.077.077 0 0 1-.006.128 12.298 12.298 0 0 1-1.873.892.075.075 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                </svg>
+                Discord
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>📚 YuriScan</h1>
+            <p>Sua fonte de traduções de mangás Yuri/GL</p>
+        </div>
+
+        <!-- Aviso de Tradução Não Oficial -->
+        <div class="warning-box">
+            <h2>📢 Aviso de Tradução Não Oficial</h2>
+            <p><strong>YuriScan</strong> é um site dedicado a traduções não oficiais de mangás Yuri/GL.</p>
+            <p>Todo conteúdo pertence aos autores e editoras originais.</p>
+            <p>Alguns materiais podem ser removidos mediante solicitação oficial de copyright.</p>
+            <p>Traduzimos preferencialmente obras que temos direito; raras exceções podem ocorrer.</p>
+            <p><strong>O objetivo do site é divulgação e apreciação.</strong></p>
+        </div>
+
+        <!-- Barra de Pesquisa Rápida -->
+        <div class="search-box">
+            <input type="text" id="quickSearch" placeholder="Buscar mangás por nome, tag ou descrição..." autocomplete="off">
+            <button onclick="irParaPesquisa()">Buscar</button>
+        </div>
+
+        <!-- Lista de Mangás -->
+        <h2 class="section-title">📌 Todos os Mangás</h2>
+        <div class="manga-grid" id="mangaList">
+            <!-- Cards serão inseridos via JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">YuriScan</div>
+        <p>© 2025 YuriScan • Feito com 💗 para fãs de Yuri</p>
+    </footer>
+
+    <script>
+        // Lista completa de mangás (fonte única da verdade)
+        const MANGAS = [
+            {
+                id: "soulmate",
+                titulo: "Soulmate",
+                slug: "soulmate",
+                capitulo: 25,
+                badge: "🔥",
+                descricao: "História sobre almas gêmeas e um romance que transcende o tempo.",
+                tags: [
+                    "Comédia", "Cotidiano", "Drama", "Romance", 
+                    "Shoujo-Ai", "Sobrenatural", "Vida Escolar", "Yuri", "Manhua"
+                ],
+                tipo: "Manhua",
+                link: "/mangas/soulmate/",
+                capa: "📖"
+            },
+            {
+                id: "on-leash",
+                titulo: "On a Leash",
+                slug: "on-leash",
+                capitulo: 62,
+                badge: "⭐",
+                descricao: "Um relacionamento complexo entre uma veterinária e uma mulher que guarda segredos.",
+                tags: ["Ação", "Drama", "nsfw", "Manhwa"],
+                tipo: "Manhwa",
+                link: "/mangas/on-leash/",
+                capa: "📖"
+            },
+            {
+                id: "bad-thinking-diary",
+                titulo: "Bad Thinking Diary",
+                slug: "bad-thinking-diary",
+                capitulo: 38,
+                badge: "Novo!",
+                descricao: "Duas garotas navegando por sentimentos confusos e um diário revelador.",
+                tags: ["Romance", "Vida Escolar", "Yuri", "Manhwa", "nsfw"],
+                tipo: "Manhwa",
+                link: "/mangas/bad-thinking-diary/",
+                capa: "📖"
+            }
+        ];
+
+        // Função para mostrar todos os mangás
+        function mostrarMangas() {
+            const container = document.getElementById('mangaList');
+            
+            container.innerHTML = MANGAS.map(manga => `
+                <a href="${manga.link}" class="manga-card">
+                    <div class="card-image">
+                        ${manga.badge ? `<span class="card-badge">${manga.badge}</span>` : ''}
+                        ${manga.capa}
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">${manga.titulo}</div>
+                        <div class="card-chapter">Capítulo ${manga.capitulo}</div>
+                        <div style="margin: 0.5rem 0; display: flex; gap: 0.3rem; flex-wrap: wrap;">
+                            ${manga.tags.slice(0, 4).map(tag => 
+                                `<span style="background: var(--bg-secondary); padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.7rem; color: var(--text-secondary);">${tag}</span>`
+                            ).join('')}
+                            ${manga.tags.length > 4 ? `<span style="color: var(--text-secondary); font-size: 0.7rem;">+${manga.tags.length-4}</span>` : ''}
+                        </div>
+                        <span class="tipo-badge">${manga.tipo}</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Função para ir para página de pesquisa
+        function irParaPesquisa() {
+            const termo = document.getElementById('quickSearch').value.trim();
+            if (termo) {
+                window.location.href = `pesquisa.html?q=${encodeURIComponent(termo)}`;
+            } else {
+                window.location.href = 'pesquisa.html';
+            }
+        }
+
+        // Evento de tecla Enter na pesquisa
+        document.getElementById('quickSearch').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                irParaPesquisa();
+            }
+        });
+
+        // Carregar mangás ao iniciar
+        document.addEventListener('DOMContentLoaded', mostrarMangas);
+    </script>
 </body>
 </html>
