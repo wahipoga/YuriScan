@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -166,33 +165,28 @@
             flex-wrap: wrap;
         }
 
-        /* Capa do mangá */
+        /* Capa do mangá - CORRIGIDA COM IMAGEM */
         .manga-cover {
             width: 250px;
             aspect-ratio: 2/3;
-            background: linear-gradient(145deg, #2a2f3a, #1e2329);
             border-radius: 16px;
             border: 3px solid var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            text-align: center;
             overflow: hidden;
             flex-shrink: 0;
+            background: linear-gradient(145deg, #2a2f3a, #1e2329);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .cover-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
+        .manga-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
-        .cover-placeholder span {
-            font-size: 4rem;
-            opacity: 0.5;
+        .manga-cover:hover img {
+            transform: scale(1.05);
         }
 
         /* Info título e botões */
@@ -670,16 +664,16 @@
             </a>
         </div>
         <!--anuncio-->
-<script async="async" data-cfasync="false" src="https://pl28830698.effectivegatecpm.com/fdcad57ee6ef76354c5e3ff11ff04120/invoke.js"></script>
-<div id="container-fdcad57ee6ef76354c5e3ff11ff04120"></div>
+        <script async="async" data-cfasync="false" src="https://pl28830698.effectivegatecpm.com/fdcad57ee6ef76354c5e3ff11ff04120/invoke.js"></script>
+        <div id="container-fdcad57ee6ef76354c5e3ff11ff04120"></div>
+        
         <!-- Cabeçalho com capa, título e botões -->
         <div class="manga-header">
-            <!-- Capa -->
+            <!-- Capa - CORRIGIDA COM IMAGEM -->
             <div class="manga-cover">
-                <div class="cover-placeholder">
-                    <span>📖</span>
-                    <span>Soulmate</span>
-                </div>
+                <img src="https://i.ibb.co/1tYqnWNx/soulmate-manhua-yuri-1-193x278.webp" 
+                     alt="Soulmate Capa"
+                     onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
             </div>
 
             <!-- Título e botões -->
