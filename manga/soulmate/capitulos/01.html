@@ -82,6 +82,48 @@
             padding: 20px;
         }
 
+        /* Aviso Amazon no topo */
+        .amazon-notice-top {
+            background: #1e2329;
+            border: 2px solid #ff7b9c;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px 0 30px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .amazon-notice-top strong {
+            color: #ff7b9c;
+            font-size: 1.1rem;
+        }
+
+        .amazon-notice-top p {
+            color: #b0b8c5;
+            font-size: 0.95rem;
+        }
+
+        .amazon-btn-top {
+            background: #ff7b9c;
+            color: #000;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .amazon-btn-top:hover {
+            background: #ff9bb3;
+            transform: translateY(-2px);
+        }
+
         /* Navegação simples */
         .nav-top {
             display: flex;
@@ -155,7 +197,7 @@
             font-weight: 400;
         }
 
-        /* Área de leitura - SIMPLES: imagens uma abaixo da outra */
+        /* Área de leitura - imagens uma abaixo da outra */
         .reading-area {
             display: flex;
             flex-direction: column;
@@ -249,37 +291,6 @@
             margin-bottom: 20px;
         }
 
-        /* Aviso Amazon */
-        .amazon-notice {
-            background: #1e2329;
-            border-left: 4px solid #ff7b9c;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .amazon-notice strong {
-            color: #ff7b9c;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .amazon-notice p {
-            color: #b0b8c5;
-            margin-bottom: 15px;
-        }
-
-        .amazon-btn {
-            background: #ff7b9c;
-            color: #000;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 600;
-        }
-
         /* Footer */
         .footer {
             background: #0f1217;
@@ -349,6 +360,16 @@
             .nav-bottom {
                 flex-direction: column;
             }
+
+            .amazon-notice-top {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .amazon-btn-top {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -384,6 +405,8 @@
 
     <!-- Conteúdo principal -->
     <div class="container">
+       
+
         <!-- Navegação topo -->
         <div class="nav-top">
             <a href="manga/o-cara-que-estou-aifim.html">← Voltar para informações</a>
@@ -399,13 +422,14 @@
             <h2>Capítulo 01 - A Pessoa Que Eu Me Interessei Não É Um Homem (Parte 1)</h2>
         </div>
 
-        <!-- Área de leitura - IMAGENS REAIS -->
+        <!-- Área de leitura - IMAGENS REAIS (substitua pelos URLs das imagens do capítulo) -->
         <div class="reading-area">
+            <!-- Primeira imagem como exemplo, substitua pelas páginas reais -->
+            <img src="https://i.ibb.co/1tYqnWNx/soulmate-manhua-yuri-1-193x278.webp" alt="Capa do mangá Soulmate (exemplo - substituir pelas páginas do capítulo)">
             <img src="https://via.placeholder.com/800x1200/1e2329/ff7b9c?text=Página+01" alt="Página 1">
             <img src="https://via.placeholder.com/800x1200/1e2329/ff7b9c?text=Página+02" alt="Página 2">
             <img src="https://via.placeholder.com/800x1200/1e2329/ff7b9c?text=Página+03" alt="Página 3">
             <img src="https://via.placeholder.com/800x1200/1e2329/ff7b9c?text=Página+04" alt="Página 4">
-            <img src="https://via.placeholder.com/800x1200/1e2329/ff7b9c?text=Página+05" alt="Página 5">
         </div>
 
         <!-- Navegação inferior (antes dos comentários) -->
@@ -418,13 +442,6 @@
         <div class="comments-section">
             <h3>Comentários</h3>
             <div id="disqus_thread"></div>
-        </div>
-
-        <!-- Aviso Amazon -->
-        <div class="amazon-notice">
-            <strong>APOIE A AUTORA, COMPRE O MANGÁ NA AMAZON</strong>
-            <p>Este é um projeto de fã para fã, sem fins lucrativos.</p>
-            <a href="#" class="amazon-btn" onclick="alert('Link para Amazon')">Comprar na Amazon</a>
         </div>
     </div>
 
