@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>YuriScan - Traduções Yuri/GL</title>
+    <!-- Favicon atualizado -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
+    <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
     <style>
         * {
             margin: 0;
@@ -62,6 +65,7 @@
             letter-spacing: 1px;
             text-decoration: none;
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .logo span {
@@ -99,6 +103,7 @@
             position: relative;
             padding: 0.5rem 0;
             white-space: nowrap;
+            cursor: pointer;
         }
 
         .nav-links a::after {
@@ -306,6 +311,7 @@
             border-radius: 30px;
             background: rgba(255, 123, 156, 0.1);
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .view-all:hover {
@@ -331,6 +337,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            color: inherit;
         }
 
         .manga-card:hover {
@@ -618,6 +626,7 @@
             background: rgba(255, 123, 156, 0.1);
             transition: all 0.3s;
             margin-top: 0.5rem;
+            cursor: pointer;
         }
 
         .open-source-link:hover {
@@ -761,17 +770,17 @@
 <body>
     <!-- Navbar com menu responsivo -->
     <nav class="navbar">
-        <a href="#" class="logo">Yuri<span>Scan</span></a>
+        <a href="#" class="logo" onclick="scrollToTop(event)">Yuri<span>Scan</span></a>
         
         <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
             ☰
         </button>
 
         <div class="nav-links" id="navLinks">
-            <a href="#" onclick="closeMenu()">Home</a>
-            <a href="#" onclick="closeMenu()">Todos os Mangás</a>
+            <a href="#" onclick="scrollToTop(event); closeMenu()">Home</a>
+            <a href="#" onclick="window.location.href='?page=todos'; closeMenu()">Todos os Mangás</a>
             <a href="#" onclick="openSobreModal(event); closeMenu()">Sobre Nós</a>
-            <a href="#" class="discord-link" onclick="closeMenu()">
+            <a href="#" class="discord-link" onclick="window.open('https://discord.gg/yuriscan', '_blank'); closeMenu()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.376 10.376 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.01c.12.098.246.198.372.292a.077.077 0 0 1-.006.128 12.298 12.298 0 0 1-1.873.892.075.075 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
                 </svg>
@@ -815,13 +824,13 @@
         <!-- Seção de Mangás -->
         <div class="section-header">
             <h2 class="section-title">Mangás em Destaque</h2>
-            <a href="#" class="view-all">Ver todos →</a>
+            <a href="#" class="view-all" onclick="window.location.href='?page=todos'; return false;">Ver todos →</a>
         </div>
 
         <!-- Grid de mangás -->
         <div class="manga-grid" id="mangaGrid">
             <!-- Soulmate - FINALIZADO -->
-            <div class="manga-card" data-title="soulmate">
+            <a href="manga/soulmate.html" class="manga-card" data-title="soulmate">
                 <div class="card-image">
                     <div class="badge-container">
                         <span class="card-badge badge-status finalizado">Finalizado</span>
@@ -835,10 +844,10 @@
                     </div>
                     <div class="card-chapter">Capítulo 24</div>
                 </div>
-            </div>
+            </a>
 
             <!-- Bad Think Diary - FINALIZADO +18 -->
-            <div class="manga-card" data-title="bad think diary">
+            <a href="manga/bad-think-diary.html" class="manga-card" data-title="bad think diary">
                 <div class="card-image">
                     <span class="badge-adult">+18</span>
                     <div class="badge-container">
@@ -854,10 +863,10 @@
                     </div>
                     <div class="card-chapter">Capítulo 17</div>
                 </div>
-            </div>
+            </a>
 
             <!-- O cara que estou a fim não é um cara?! - EM ANDAMENTO -->
-            <div class="manga-card" data-title="o cara que estou a fim não é um cara">
+            <a href="manga/o-cara-que-estou-aifim.html" class="manga-card" data-title="o cara que estou a fim não é um cara">
                 <div class="card-image">
                     <div class="badge-container">
                         <span class="card-badge badge-status">Em Andamento</span>
@@ -871,7 +880,7 @@
                     </div>
                     <div class="card-chapter">Capítulo 8</div>
                 </div>
-            </div>
+            </a>
         </div>
     </main>
 
@@ -910,7 +919,7 @@
                     <p style="font-size: 0.9rem; margin: 0.8rem 0;">
                         Todo o código está disponível para estudo, modificação e distribuição.
                     </p>
-                    <a href="https://github.com/wahipoga/YuriScan/" class="open-source-link" onclick="alert('Link para o repositório GitHub')">
+                    <a href="#" class="open-source-link" onclick="window.open('https://github.com/wahipoga/YuriScan/', '_blank'); return false;">
                         <span>📂</span>
                         Ver no GitHub
                         <span>→</span>
@@ -955,6 +964,15 @@
                 navLinks.classList.remove('show');
             }
         });
+
+        // Scroll to top function
+        function scrollToTop(event) {
+            if (event) event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
         // Aviso legal recolhível
         function toggleLegal() {
@@ -1021,14 +1039,6 @@
             }
         }
 
-        // Clique nos cards
-        document.querySelectorAll('.manga-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const title = this.querySelector('.card-title').textContent;
-                alert(`📖 Redirecionando para: ${title}`);
-            });
-        });
-
         // Debounce para pesquisa (melhora performance)
         let searchTimeout;
         document.getElementById('searchInput').addEventListener('keyup', function() {
@@ -1049,6 +1059,19 @@
             if (window.innerWidth > 768) {
                 closeMenu();
             }
+        });
+
+        // Simular navegação para páginas de mangá (para demonstração)
+        document.querySelectorAll('.manga-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Se for um link real, não interfere
+                if (this.tagName === 'A') return;
+                
+                e.preventDefault();
+                const title = this.querySelector('.card-title').textContent;
+                // Simula redirecionamento para página do mangá
+                window.location.href = `manga/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`;
+            });
         });
     </script>
 </body>
