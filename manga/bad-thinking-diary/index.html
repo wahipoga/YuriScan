@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>YuriScan - Soulmate</title>
+    <title>YuriScan - Bad Thinking Diary</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
     <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
@@ -294,33 +294,28 @@
             flex-wrap: wrap;
         }
 
-        /* Capa do mangá */
+        /* Capa do mangá - CORRIGIDA COM IMAGEM */
         .manga-cover {
             width: 250px;
             aspect-ratio: 2/3;
-            background: linear-gradient(145deg, #2a2f3a, #1e2329);
             border-radius: 16px;
             border: 3px solid var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            text-align: center;
             overflow: hidden;
             flex-shrink: 0;
+            background: linear-gradient(145deg, #2a2f3a, #1e2329);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .cover-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
+        .manga-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
-        .cover-placeholder span {
-            font-size: 4rem;
-            opacity: 0.5;
+        .manga-cover:hover img {
+            transform: scale(1.05);
         }
 
         /* Info título e botões */
@@ -433,6 +428,7 @@
             color: var(--text-primary);
             font-size: 1.2rem;
             line-height: 1.5;
+            word-break: break-word;
         }
 
         /* Sinopse */
@@ -555,6 +551,21 @@
         .star {
             color: #ffc107;
             font-size: 1.2rem;
+        }
+
+        .star.half {
+            position: relative;
+            display: inline-block;
+        }
+
+        .star.half::after {
+            content: '★';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            overflow: hidden;
+            color: #ffc107;
         }
 
         .rating-number {
@@ -838,30 +849,29 @@
 
             <!-- Cabeçalho com capa, título e botões -->
             <div class="manga-header">
-                <!-- Capa -->
+                <!-- Capa - CORRIGIDA COM IMAGEM -->
                 <div class="manga-cover">
-                    <div class="cover-placeholder">
-                        <span>📖</span>
-                        <span>Soulmate</span>
-                    </div>
+                    <img src="https://i.ibb.co/LzmP7c2f/Bad-Thinking-Diary-Manhwa-Yuri-193x278.webp" 
+                         alt="Bad Thinking Diary Capa"
+                         onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
                 </div>
 
                 <!-- Título e botões -->
                 <div class="manga-title-section">
-                    <h1 class="manga-title">Soulmate</h1>
+                    <h1 class="manga-title">Bad Thinking Diary</h1>
                     
                     <div class="manga-badges">
                         <span class="badge status">Finalizado</span>
-                        <span class="badge type">Manhua</span>
+                        <span class="badge type">Manhwa</span>
                     </div>
 
                     <!-- Botões de leitura rápida -->
                     <div class="quick-read-buttons">
-                        <a href="manga/soulmate/capitulo-1.html" class="read-btn primary">
+                        <a href="manga/bad-thinking-diary/capitulo-1.html" class="read-btn primary">
                             <span>📖</span>
                             Ler Primeiro Capítulo
                         </a>
-                        <a href="manga/soulmate/capitulo-24.html" class="read-btn secondary">
+                        <a href="manga/bad-thinking-diary/capitulo-17.html" class="read-btn secondary">
                             <span>🔖</span>
                             Ler Último Capítulo
                         </a>
@@ -869,44 +879,43 @@
                 </div>
             </div>
 
-            <!-- OUTROS TÍTULOS (antes da sinopse) -->
+            <!-- OUTROS TÍTULOS (antes da sinopse) - CORRIGIDO -->
             <div class="other-titles-section">
                 <div class="other-titles-label">Outros Títulos</div>
-                <div class="other-titles-value">Almas Gemelas; Almas Gêmeas; 靈魂伴侶</div>
+                <div class="other-titles-value">배드띵킹 다이어리</div>
             </div>
 
             <!-- Sinopse -->
             <div class="sinopse-section">
                 <h2 class="section-title">Sinopse</h2>
                 <div class="sinopse-text">
-                    Duas garotas são amigas, irmãs e almas gêmeas. Yu Qi, uma estudante de 17 anos do ensino médio, acorda e descobre que ela e seu eu de 27 anos trocaram de alma. Uma tem que reviver a experiência de conhecer sua amada novamente e a outra tem que assumir a responsabilidade de ser uma namorada, apesar de não estar familiarizada com a garota que ela está namorando. Ambos os mundos estão sempre mudando, mas a única que nunca muda é… você, que está sempre ao meu lado.
+                    Minji e Yuna estavam sempre juntas. Desde os 17 anos até agora, com 21 anos, elas têm sido as melhores amigas uma da outra. A partir desse dia, a relação delas muda sutilmente. Tudo começou com o estranho sonho de Minji em que Yuna apareceu! O relacionamento delas começa a se transformar em algo diferente de melhores amigas.
+
+                    Amor não correspondido, excitação e obsessão. "Pensamentos ruins" que crescem um após o outro na mente da outra.
+
+                    Onde irão parar nossos "maus pensamentos", que começaram em um campus universitário exuberante?
                 </div>
             </div>
 
-            <!-- Informações completas em um único bloco -->
+            <!-- Informações completas em um único bloco - CORRIGIDAS -->
             <div class="info-section">
                 <h2 class="section-title">Informações</h2>
                 
                 <div class="info-grid">
                     <div class="info-item">
                         <span class="info-label">Autor(es)</span>
-                        <span class="info-value">Ke Ran Bing (可燃冰), Wenzhi Lizi (文枝栗子)</span>
+                        <span class="info-value">Hodan (ii)</span>
                     </div>
 
                     <div class="info-item">
                         <span class="info-label">Artista(s)</span>
-                        <span class="info-value">Ke Ran Bing (可燃冰)</span>
+                        <span class="info-value">Langlali</span>
                     </div>
 
                     <div class="info-item">
                         <span class="info-label">Gêneros</span>
                         <div class="genres-tags">
-                            <span class="genre-tag">Comédia</span>
-                            <span class="genre-tag">Cotidiano</span>
-                            <span class="genre-tag">Drama</span>
                             <span class="genre-tag">Romance</span>
-                            <span class="genre-tag">Shoujo-Ai</span>
-                            <span class="genre-tag">Sobrenatural</span>
                             <span class="genre-tag">Vida Escolar</span>
                             <span class="genre-tag">Yuri</span>
                         </div>
@@ -914,7 +923,7 @@
 
                     <div class="info-item">
                         <span class="info-label">Tipo</span>
-                        <span class="info-value">Manhua</span>
+                        <span class="info-value">Manhwa</span>
                     </div>
 
                     <div class="info-item">
@@ -935,7 +944,7 @@
                     <div class="info-item">
                         <span class="info-label">Avaliação</span>
                         <div class="rating-section">
-                            <span class="rating-number">4.9</span>
+                            <span class="rating-number">4.6</span>
                             <div class="rating-stars">
                                 <span class="star">★</span>
                                 <span class="star">★</span>
@@ -943,7 +952,7 @@
                                 <span class="star">★</span>
                                 <span class="star">★</span>
                             </div>
-                            <span class="rating-count">(584 avaliações)</span>
+                            <span class="rating-count">(891 avaliações)</span>
                         </div>
                     </div>
 
@@ -954,7 +963,7 @@
 
                     <div class="info-item">
                         <span class="info-label">Lançamento</span>
-                        <span class="info-value">27/12/2020</span>
+                        <span class="info-value">2022</span>
                     </div>
                 </div>
             </div>
@@ -963,42 +972,42 @@
             <div class="chapters-section">
                 <h2 class="section-title">Capítulos</h2>
                 <div class="chapters-list">
-                    <a href="manga/soulmate/capitulo-24.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-17.html" class="chapter-item">
                         <div class="chapter-left">
-                            <span class="chapter-number">Capítulo 24</span>
+                            <span class="chapter-number">Capítulo 17</span>
                             <span class="chapter-title">Final</span>
                         </div>
                         <span class="chapter-date">15/03/2025</span>
                     </a>
-                    <a href="manga/soulmate/capitulo-23.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-16.html" class="chapter-item">
                         <div class="chapter-left">
-                            <span class="chapter-number">Capítulo 23</span>
-                            <span class="chapter-title">Encontro</span>
+                            <span class="chapter-number">Capítulo 16</span>
+                            <span class="chapter-title">Revelação</span>
                         </div>
                         <span class="chapter-date">10/03/2025</span>
                     </a>
-                    <a href="manga/soulmate/capitulo-22.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-15.html" class="chapter-item">
                         <div class="chapter-left">
-                            <span class="chapter-number">Capítulo 22</span>
-                            <span class="chapter-title">Lembranças</span>
+                            <span class="chapter-number">Capítulo 15</span>
+                            <span class="chapter-title">Confissão</span>
                         </div>
                         <span class="chapter-date">05/03/2025</span>
                     </a>
-                    <a href="manga/soulmate/capitulo-21.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-14.html" class="chapter-item">
                         <div class="chapter-left">
-                            <span class="chapter-number">Capítulo 21</span>
-                            <span class="chapter-title">Decisão</span>
+                            <span class="chapter-number">Capítulo 14</span>
+                            <span class="chapter-title">Encontro</span>
                         </div>
                         <span class="chapter-date">28/02/2025</span>
                     </a>
-                    <a href="manga/soulmate/capitulo-20.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-13.html" class="chapter-item">
                         <div class="chapter-left">
-                            <span class="chapter-number">Capítulo 20</span>
-                            <span class="chapter-title">Reencontro</span>
+                            <span class="chapter-number">Capítulo 13</span>
+                            <span class="chapter-title">Ciúmes</span>
                         </div>
                         <span class="chapter-date">20/02/2025</span>
                     </a>
-                    <a href="manga/soulmate/capitulo-1.html" class="chapter-item">
+                    <a href="manga/bad-thinking-diary/capitulo-1.html" class="chapter-item">
                         <div class="chapter-left">
                             <span class="chapter-number">Capítulo 1</span>
                             <span class="chapter-title">O Começo</span>
