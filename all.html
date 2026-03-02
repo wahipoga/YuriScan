@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>YuriScan - Todos os Mangás</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
+    <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
     <style>
         * {
             margin: 0;
@@ -25,6 +28,7 @@
             --andamento: #FFC107;
             --nsfw: #9c27b0;
             --discord: #5865F2;
+            --header-height: 70px;
         }
 
         body {
@@ -47,6 +51,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            min-height: var(--header-height);
         }
 
         .logo {
@@ -56,6 +61,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .logo span {
@@ -77,11 +83,41 @@
             font-weight: 500;
             font-size: 1.1rem;
             transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
-        .nav-links a:hover,
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
         .nav-links a.active {
             color: var(--accent);
+        }
+
+        /* Estilo para link não clicável */
+        .nav-links a.no-click {
+            pointer-events: none;
+            cursor: default;
+            opacity: 0.8;
+        }
+
+        .nav-links a.no-click::after {
+            width: 100%;
+            background: var(--accent);
         }
 
         .discord-link {
@@ -91,6 +127,20 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .discord-link::after {
+            display: none;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Container principal */
@@ -378,6 +428,8 @@
             cursor: pointer;
             flex-wrap: wrap;
             gap: 1rem;
+            text-decoration: none;
+            color: inherit;
         }
 
         .manga-item:hover {
@@ -551,17 +603,47 @@
             margin-bottom: 1.5rem;
         }
 
+        .copyright {
+            color: #4a525f;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
+            .menu-toggle {
+                display: block;
             }
-            
+
             .nav-links {
-                flex-wrap: wrap;
+                display: none;
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                right: 0;
+                background: #0f1217;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid var(--accent);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                z-index: 99;
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .discord-link {
                 justify-content: center;
-                gap: 1rem;
             }
             
             .page-header {
@@ -617,12 +699,15 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="index.html" class="logo">Yuri<span>Scan</span></a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="todos-mangas.html" class="active">Todos os Mangás</a>
-            <a href="#" onclick="openSobreModal(event)">Sobre Nós</a>
-            <a href="#" class="discord-link">
+        <a href="index.html" class="logo" onclick="navigateToHome(event)">Yuri<span>Scan</span></a>
+        
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" onclick="navigateToHome(event); closeMenu()">Home</a>
+            <a href="todos-mangas.html" class="active no-click" onclick="return false;">Todos os Mangás</a>
+            <a href="#" onclick="openSobreModal(event); closeMenu()">Sobre Nós</a>
+            <a href="#" class="discord-link" onclick="window.open('https://discord.gg/yuriscan', '_blank'); closeMenu()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.075.075 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.376 10.376 0 0 0 .372-.292.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.01c.12.098.246.198.372.292a.077.077 0 0 1-.006.128 12.298 12.298 0 0 1-1.873.892.075.075 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
                 </svg>
@@ -801,13 +886,13 @@
         <!-- Lista de mangás -->
         <div class="manga-list" id="mangaList">
             <!-- Soulmate - Manhua -->
-            <div class="manga-item" 
-                 data-status="finalizado" 
-                 data-type="manhua"
-                 data-genres="comedia cotidiano drama romance shoujo-ai sobrenatural vida-escolar yuri"
-                 data-nsfw="false"
-                 data-title="soulmate"
-                 data-search="soulmate">
+            <a href="manga/soulmate.html" class="manga-item" 
+               data-status="finalizado" 
+               data-type="manhua"
+               data-genres="comedia cotidiano drama romance shoujo-ai sobrenatural vida-escolar yuri"
+               data-nsfw="false"
+               data-title="soulmate"
+               data-search="soulmate">
                 <div class="manga-info">
                     <div class="manga-name">
                         Soulmate 
@@ -828,16 +913,16 @@
                     </div>
                 </div>
                 <div class="manga-chapter">Capítulo 24</div>
-            </div>
+            </a>
 
             <!-- Bad Think Diary - Manhwa NSFW -->
-            <div class="manga-item" 
-                 data-status="finalizado" 
-                 data-type="manhwa"
-                 data-genres="romance vida-escolar yuri"
-                 data-nsfw="true"
-                 data-title="bad think diary"
-                 data-search="bad think diary">
+            <a href="manga/bad-think-diary.html" class="manga-item" 
+               data-status="finalizado" 
+               data-type="manhwa"
+               data-genres="romance vida-escolar yuri"
+               data-nsfw="true"
+               data-title="bad think diary"
+               data-search="bad think diary">
                 <div class="manga-info">
                     <div class="manga-name">
                         Bad Think Diary 
@@ -854,16 +939,16 @@
                     </div>
                 </div>
                 <div class="manga-chapter">Capítulo 17</div>
-            </div>
+            </a>
 
             <!-- O cara que estou a fim não é um cara?! - Mangá -->
-            <div class="manga-item" 
-                 data-status="andamento" 
-                 data-type="manga"
-                 data-genres="comedia romance shoujo-ai vida-escolar yuri"
-                 data-nsfw="false"
-                 data-title="o cara que estou a fim não é um cara"
-                 data-search="o cara que estou a fim não é um cara">
+            <a href="manga/o-cara-que-estou-aifim.html" class="manga-item" 
+               data-status="andamento" 
+               data-type="manga"
+               data-genres="comedia romance shoujo-ai vida-escolar yuri"
+               data-nsfw="false"
+               data-title="o cara que estou a fim não é um cara"
+               data-search="o cara que estou a fim não é um cara">
                 <div class="manga-info">
                     <div class="manga-name">
                         O cara que estou a fim não é um cara?! 
@@ -881,7 +966,7 @@
                     </div>
                 </div>
                 <div class="manga-chapter">Capítulo 8</div>
-            </div>
+            </a>
         </div>
 
         <!-- Mensagem sem resultados -->
@@ -896,14 +981,42 @@
             <div class="footer-logo">YuriScan</div>
             <div class="footer-text">
                 Traduções não oficiais de mangás Yuri/GL. Respeitamos os autores originais.
+                Todo o conteúdo é propriedade de seus respectivos criadores e editoras.
             </div>
             <div class="copyright">
-                © 2025 YuriScan • Feito com 💗 para fãs de Yuri
+                © 2025 YuriScan • Código Aberto • Feito com 💗 para fãs de Yuri
             </div>
         </div>
     </footer>
 
     <script>
+        // Menu mobile
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('show');
+        }
+
+        // Navegação sem recarregar (simulada)
+        function navigateToHome(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        }
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (navLinks && menuToggle && !navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('show');
+            }
+        });
+
         // Lista completa de filtros
         const filterIds = [
             'filterFinalizado', 'filterAndamento',
@@ -951,16 +1064,17 @@
             }
         }
 
-        // Fechar menu ao clicar fora
+        // Fechar menu de filtros ao clicar fora
         document.addEventListener('click', function(event) {
             const filtersMenu = document.querySelector('.filters-menu');
             const dropdown = document.getElementById('filtersDropdown');
             const toggle = document.getElementById('filtersToggle');
             
-            if (!filtersMenu.contains(event.target) && dropdown.classList.contains('show')) {
+            if (filtersMenu && !filtersMenu.contains(event.target) && dropdown && dropdown.classList.contains('show')) {
                 dropdown.classList.remove('show');
                 toggle.classList.remove('active');
-                document.getElementById('filtersArrow').style.transform = 'rotate(0deg)';
+                const arrow = document.getElementById('filtersArrow');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
             }
         });
 
@@ -1041,10 +1155,12 @@
             
             // Mostrar mensagem sem resultados
             const noResults = document.getElementById('noResults');
-            if (visibleCount === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
+            if (noResults) {
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
             }
             
             // Mostrar filtros ativos
@@ -1068,15 +1184,20 @@
             
             for (let [filterId, isActive] of Object.entries(filters)) {
                 if (isActive) {
-                    const filterName = document.querySelector(`label[for="${filterId}"]`).childNodes[0].nodeValue.trim();
-                    html += `<span class="filter-badge">
-                        ${filterName}
-                        <button onclick="removeFilter('${filterId}')">✕</button>
-                    </span>`;
+                    const label = document.querySelector(`label[for="${filterId}"]`);
+                    if (label) {
+                        const filterName = label.childNodes[0].nodeValue.trim();
+                        html += `<span class="filter-badge">
+                            ${filterName}
+                            <button onclick="removeFilter('${filterId}')">✕</button>
+                        </span>`;
+                    }
                 }
             }
             
-            activeFiltersDiv.innerHTML = html;
+            if (activeFiltersDiv) {
+                activeFiltersDiv.innerHTML = html;
+            }
         }
 
         // Limpar pesquisa
@@ -1101,6 +1222,14 @@
             document.getElementById('searchInput').value = '';
             
             applyFilters();
+            
+            // Fechar dropdown
+            const dropdown = document.getElementById('filtersDropdown');
+            const toggle = document.getElementById('filtersToggle');
+            if (dropdown) dropdown.classList.remove('show');
+            if (toggle) toggle.classList.remove('active');
+            const arrow = document.getElementById('filtersArrow');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
         }
 
         // Atualizar contadores
@@ -1159,27 +1288,44 @@
             document.getElementById('countNSFW').textContent = counts.nsfw;
         }
 
-        // Clique nos mangás
-        document.querySelectorAll('.manga-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const title = this.querySelector('.manga-name').childNodes[0].nodeValue.trim();
-                alert(`📖 Redirecionando para: ${title}`);
-            });
-        });
-
         // Modal Sobre Nós simplificado
         function openSobreModal(event) {
             event.preventDefault();
-            alert('YuriScan - Projeto Open Source\nVersão 1.0.0\nFeito com 💗 para fãs de Yuri');
+            alert('YuriScan - Projeto Open Source\nVersão 1.0.0\nRepositório: https://github.com/wahipoga/YuriScan/\nFeito com 💗 para fãs de Yuri');
         }
 
         // Inicializar contadores
         updateCounts();
 
         // Adicionar enter na pesquisa
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchMangas();
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchMangas();
+                }
+            });
+        }
+
+        // Prevenir scroll quando modal aberto (se houver)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+
+        // Fechar com ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const dropdown = document.getElementById('filtersDropdown');
+                if (dropdown && dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                    const toggle = document.getElementById('filtersToggle');
+                    if (toggle) toggle.classList.remove('active');
+                    const arrow = document.getElementById('filtersArrow');
+                    if (arrow) arrow.style.transform = 'rotate(0deg)';
+                }
+                closeMenu();
             }
         });
     </script>
