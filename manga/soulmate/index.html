@@ -165,7 +165,7 @@
             flex-wrap: wrap;
         }
 
-        /* Capa do mangá - CORRIGIDA COM IMAGEM */
+        /* Capa do mangá */
         .manga-cover {
             width: 250px;
             aspect-ratio: 2/3;
@@ -277,7 +277,7 @@
             transform: translateY(-2px);
         }
 
-        /* Outros Títulos (antes da sinopse) */
+        /* Outros Títulos */
         .other-titles-section {
             background: var(--bg-card);
             border-radius: 20px;
@@ -479,6 +479,7 @@
             font-weight: 700;
             color: var(--accent);
             font-size: 1.1rem;
+            min-width: 120px;
         }
 
         .chapter-title {
@@ -488,6 +489,50 @@
         .chapter-date {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            min-width: 85px;
+            text-align: right;
+        }
+
+        /* Botão Ver Mais */
+        .show-more-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .show-more-btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .show-more-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 123, 156, 0.3);
+        }
+
+        .show-more-btn i {
+            transition: transform 0.3s;
+        }
+
+        .show-more-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Capítulos ocultos inicialmente */
+        .chapter-item.hidden {
+            display: none;
         }
 
         /* Seção de Comentários */
@@ -629,6 +674,15 @@
                 gap: 0.3rem;
             }
 
+            .chapter-number {
+                min-width: auto;
+            }
+
+            .chapter-date {
+                text-align: left;
+                min-width: auto;
+            }
+
             .other-titles-value {
                 font-size: 1rem;
             }
@@ -663,17 +717,17 @@
                 Voltar para Todos os Mangás
             </a>
         </div>
-        <!--anuncio-->
+        
+        <!-- Anúncio -->
         <script async="async" data-cfasync="false" src="https://pl28830698.effectivegatecpm.com/fdcad57ee6ef76354c5e3ff11ff04120/invoke.js"></script>
         <div id="container-fdcad57ee6ef76354c5e3ff11ff04120"></div>
         
         <!-- Cabeçalho com capa, título e botões -->
         <div class="manga-header">
-            <!-- Capa - CORRIGIDA COM IMAGEM -->
+            <!-- Capa -->
             <div class="manga-cover">
                 <img src="https://i.ibb.co/1tYqnWNx/soulmate-manhua-yuri-1-193x278.webp" 
-                     alt="Soulmate Capa"
-                     onerror="https://yuriscan.top/manga/soulmate/capitulos/01'; this.onerror=null;">
+                     alt="Soulmate Capa">
             </div>
 
             <!-- Título e botões -->
@@ -691,7 +745,7 @@
                         <span>📖</span>
                         Ler Primeiro Capítulo
                     </a>
-                    <a href="https://yuriscan.top/manga/soulmate/capitulos/01" class="read-btn secondary">
+                    <a href="https://yuriscan.top/manga/soulmate/capitulos/41" class="read-btn secondary">
                         <span>🔖</span>
                         Ler Último Capítulo
                     </a>
@@ -699,7 +753,7 @@
             </div>
         </div>
 
-        <!-- OUTROS TÍTULOS (antes da sinopse) -->
+        <!-- OUTROS TÍTULOS -->
         <div class="other-titles-section">
             <div class="other-titles-label">Outros Títulos</div>
             <div class="other-titles-value">Almas Gemelas; Almas Gêmeas; 靈魂伴侶</div>
@@ -713,7 +767,7 @@
             </div>
         </div>
 
-        <!-- Informações completas em um único bloco -->
+        <!-- Informações completas -->
         <div class="info-section">
             <h2 class="section-title">Informações</h2>
             
@@ -784,7 +838,12 @@
 
                 <div class="info-item">
                     <span class="info-label">Lançamento</span>
-                    <span class="info-value">27/12/2020</span>
+                    <span class="info-value">28/11/2020</span>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-label">Capítulos</span>
+                    <span class="info-value highlight">40 Capítulos (5 extras)</span>
                 </div>
             </div>
         </div>
@@ -792,49 +851,392 @@
         <!-- Lista de Capítulos -->
         <div class="chapters-section">
             <h2 class="section-title">Capítulos</h2>
-            <div class="chapters-list">
-                <a href="manga/soulmate/capitulo-24.html" class="chapter-item">
+            <div class="chapters-list" id="chaptersList">
+                <!-- ÚLTIMOS 5 CAPÍTULOS (mais recentes primeiro) -->
+                
+                <!-- Episódio 41 - Extra 04 -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/41-4" class="chapter-item">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 24</span>
-                        <span class="chapter-title">Final</span>
+                        <span class="chapter-number">Episódio 41 - Extra 04</span>
+                        <span class="chapter-title">Vida de casadas da Yuqi e Yuanzi</span>
                     </div>
-                    <span class="chapter-date">15/03/2025</span>
+                    <span class="chapter-date">01/01/2021</span>
                 </a>
-                <a href="manga/soulmate/capitulo-23.html" class="chapter-item">
+                
+                <!-- Episódio 41 - Extra 03 -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/41-3" class="chapter-item">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 23</span>
-                        <span class="chapter-title">Encontro</span>
+                        <span class="chapter-number">Episódio 41 - Extra 03</span>
+                        <span class="chapter-title">Urso</span>
                     </div>
-                    <span class="chapter-date">10/03/2025</span>
+                    <span class="chapter-date">01/01/2021</span>
                 </a>
-                <a href="manga/soulmate/capitulo-22.html" class="chapter-item">
+                
+                <!-- Episódio 41 - Extra 02 -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/41-2" class="chapter-item">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 22</span>
-                        <span class="chapter-title">Lembranças</span>
+                        <span class="chapter-number">Episódio 41 - Extra 02</span>
+                        <span class="chapter-title">Imagens Aleatórias</span>
                     </div>
-                    <span class="chapter-date">05/03/2025</span>
+                    <span class="chapter-date">01/01/2021</span>
                 </a>
-                <a href="manga/soulmate/capitulo-21.html" class="chapter-item">
+                
+                <!-- Episódio 41 - Extra 01 -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/41-1" class="chapter-item">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 21</span>
+                        <span class="chapter-number">Episódio 41 - Extra 01</span>
+                        <span class="chapter-title">Abra primeiro</span>
+                    </div>
+                    <span class="chapter-date">01/01/2021</span>
+                </a>
+                
+                <!-- Episódio 40 - Arc íris [Fim] -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/40" class="chapter-item">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 40</span>
+                        <span class="chapter-title">Arc íris [Fim]</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <!-- DEMAIS CAPÍTULOS (ocultos) -->
+                
+                <!-- Episódio 39 -->
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/39" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 39</span>
+                        <span class="chapter-title">Surpresa</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/38" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 38</span>
+                        <span class="chapter-title">Ano Novo</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/37" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 37.5</span>
+                        <span class="chapter-title">Extra - Acampamento</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/37" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 37</span>
+                        <span class="chapter-title">Ponto de Ruptura</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/36" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 36</span>
                         <span class="chapter-title">Decisão</span>
                     </div>
-                    <span class="chapter-date">28/02/2025</span>
+                    <span class="chapter-date">28/11/2020</span>
                 </a>
-                <a href="manga/soulmate/capitulo-20.html" class="chapter-item">
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/35" class="chapter-item hidden">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 20</span>
-                        <span class="chapter-title">Reencontro</span>
+                        <span class="chapter-number">Episódio 35</span>
+                        <span class="chapter-title">Entrelaçada</span>
                     </div>
-                    <span class="chapter-date">20/02/2025</span>
+                    <span class="chapter-date">28/11/2020</span>
                 </a>
-                <a href="manga/soulmate/capitulo-1.html" class="chapter-item">
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/34" class="chapter-item hidden">
                     <div class="chapter-left">
-                        <span class="chapter-number">Capítulo 1</span>
-                        <span class="chapter-title">O Começo</span>
+                        <span class="chapter-number">Episódio 34</span>
+                        <span class="chapter-title">Final do Show</span>
                     </div>
-                    <span class="chapter-date">01/01/2025</span>
+                    <span class="chapter-date">28/11/2020</span>
                 </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/33" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 33</span>
+                        <span class="chapter-title">Desvendar</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/32" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 32</span>
+                        <span class="chapter-title">Exame físico</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/31" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 31</span>
+                        <span class="chapter-title">Confronto</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/30" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 30</span>
+                        <span class="chapter-title">Espiral</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/29" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 29</span>
+                        <span class="chapter-title">Ver as flores</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/28" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 28</span>
+                        <span class="chapter-title">Desculpas</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/27" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 27</span>
+                        <span class="chapter-title">Resposta</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/26" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 26</span>
+                        <span class="chapter-title">Confissão</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/25" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 25</span>
+                        <span class="chapter-title">Rachaduras</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/24" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 24</span>
+                        <span class="chapter-title">Confissão</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/23" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 23</span>
+                        <span class="chapter-title">Amor secreto</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/22" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 22</span>
+                        <span class="chapter-title">Indo para casa</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/21" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 21</span>
+                        <span class="chapter-title">Segredo</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/20" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 20</span>
+                        <span class="chapter-title">Ponto de virada</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/19" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 19</span>
+                        <span class="chapter-title">Preocupada</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/18" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 18</span>
+                        <span class="chapter-title">Guarda-chuva vermelho</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/17" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 17</span>
+                        <span class="chapter-title">Encontrando amigas</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/16" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 16</span>
+                        <span class="chapter-title">Suspensa</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/15" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 15</span>
+                        <span class="chapter-title">Natação</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/14" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 14</span>
+                        <span class="chapter-title">Exercícios</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/13" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 13</span>
+                        <span class="chapter-title">Foto de casal</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/12" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 12</span>
+                        <span class="chapter-title">Competição de Vôlei</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/11" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 11</span>
+                        <span class="chapter-title">Xinyue</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/10" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 10</span>
+                        <span class="chapter-title">Doces</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/09" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 09</span>
+                        <span class="chapter-title">Morando sozinha</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/08" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 08</span>
+                        <span class="chapter-title">Reconciliação</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/07" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 07</span>
+                        <span class="chapter-title">Fugiu</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/06" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 06</span>
+                        <span class="chapter-title">Ensaio</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/05" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 05</span>
+                        <span class="chapter-title">O cheiro do outono</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/04" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 04</span>
+                        <span class="chapter-title">Quarto hospitalar</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/03" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 03</span>
+                        <span class="chapter-title">27 anos</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/02" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 02</span>
+                        <span class="chapter-title">Comendo doces</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/01" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 01</span>
+                        <span class="chapter-title">17 anos</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+                
+                <a href="https://yuriscan.top/manga/soulmate/capitulos/00" class="chapter-item hidden">
+                    <div class="chapter-left">
+                        <span class="chapter-number">Episódio 00</span>
+                        <span class="chapter-title">Eu ainda estou ao seu lado</span>
+                    </div>
+                    <span class="chapter-date">28/11/2020</span>
+                </a>
+            </div>
+            
+            <!-- Botão Ver Mais -->
+            <div class="show-more-container">
+                <button class="show-more-btn" id="showMoreBtn" onclick="toggleChapters()">
+                    <span id="btnText">Ver mais 40 capítulos</span>
+                    <i id="btnIcon">▼</i>
+                </button>
             </div>
         </div>
 
@@ -882,7 +1284,7 @@
             }
         });
 
-        // Modal Sobre Nós (simplificado)
+        // Modal Sobre Nós
         function openSobreModal(event) {
             event.preventDefault();
             alert('YuriScan - Projeto Open Source\nVersão 1.0.0\nRepositório: https://github.com/wahipoga/YuriScan/\nFeito com 💗 para fãs de Yuri');
@@ -895,27 +1297,59 @@
             }
         });
 
-        // Prevenir scroll do body quando modal (se houver)
+        // Prevenir scroll do body quando modal
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 closeMenu();
+            }
+        });
+
+        // Função para mostrar/esconder capítulos
+        function toggleChapters() {
+            const hiddenChapters = document.querySelectorAll('.chapter-item.hidden');
+            const btn = document.getElementById('showMoreBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            
+            if (hiddenChapters.length > 0) {
+                // Verificar se os capítulos estão ocultos (display none ou vazio)
+                const isHidden = hiddenChapters[0].style.display === 'none' || hiddenChapters[0].style.display === '';
+                
+                hiddenChapters.forEach(chapter => {
+                    if (isHidden) {
+                        chapter.style.display = 'flex';
+                        btnText.textContent = 'Ver menos';
+                        btnIcon.textContent = '▲';
+                        btn.classList.add('active');
+                    } else {
+                        chapter.style.display = 'none';
+                        btnText.textContent = `Ver mais ${hiddenChapters.length} capítulos`;
+                        btnIcon.textContent = '▼';
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Inicializar capítulos ocultos
+        document.addEventListener('DOMContentLoaded', function() {
+            const hiddenChapters = document.querySelectorAll('.chapter-item.hidden');
+            hiddenChapters.forEach(chapter => {
+                chapter.style.display = 'none';
+            });
+            
+            // Atualizar texto do botão com quantidade correta
+            const btnText = document.getElementById('btnText');
+            if (btnText) {
+                const hiddenCount = hiddenChapters.length;
+                btnText.textContent = `Ver mais ${hiddenCount} capítulos`;
             }
         });
     </script>
 
     <!-- Script do Disqus -->
     <script>
-        /**
-        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-        */
-        /*
-        var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() { // DON'T EDIT BELOW THIS LINE
+        (function() {
             var d = document, s = d.createElement('script');
             s.src = 'https://yuri-8.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
