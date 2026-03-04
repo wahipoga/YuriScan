@@ -432,6 +432,34 @@
             white-space: nowrap;
         }
 
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            left: 60px;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 2;
+            white-space: nowrap;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         .card-content {
             padding: 1.2rem;
             flex: 1;
@@ -765,6 +793,11 @@
                 margin: 1rem auto;
                 padding: 1.5rem;
             }
+
+            .badge-new {
+                left: 10px;
+                top: 50px;
+            }
         }
 
         /* Tablets */
@@ -797,7 +830,7 @@
 
         <div class="nav-links" id="navLinks">
             <a href="https://yuriscan.top/" class="active no-click" onclick="return false;">Home</a>
-            <a href="https://yuriscan.top/all" onclick="closeMenu()">Todos os Mangás</a>
+            <a href="https://yuriscan.top/manga" onclick="closeMenu()">Todos os Mangás</a>
             <a href="#" onclick="openSobreModal(event); closeMenu()">Sobre Nós</a>
             <a href="https://discord.gg/uZUWv7vTrT" class="discord-link" onclick="closeMenu()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -843,7 +876,7 @@
         <!-- Seção de Mangás -->
         <div class="section-header">
             <h2 class="section-title">Mangás em Destaque</h2>
-            <a href="https://yuriscan.top/all" class="view-all">Ver todos →</a>
+            <a href="https://yuriscan.top/manga" class="view-all">Ver todos →</a>
         </div>
         
         <!-- anuncio-->
@@ -852,62 +885,69 @@
 
         <!-- Grid de mangás -->
         <div class="manga-grid" id="mangaGrid">
-            <!-- Soulmate - FINALIZADO -->
-            <a href="https://yuriscan.top/manga/soulmate/" class="manga-card" data-title="soulmate">
+            <!-- Ruthless (sem censura) - EM ANDAMENTO +18 -->
+            <a href="https://yuriscan.top/manga/ruthless/" class="manga-card" data-title="ruthless sem censura">
                 <div class="card-image">
-                    <img src="https://i.ibb.co/1tYqnWNx/soulmate-manhua-yuri-1-193x278.webp" 
-                         alt="Soulmate Capa"
-                         onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
-                    <div class="badge-container">
-                        <span class="card-badge badge-status finalizado">Finalizado</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-title">Soulmate</div>
-                    <div class="card-status-wrapper">
-                        <span class="card-status finalizado">✓ Finalizado</span>
-                    </div>
-                    <div class="card-chapter">Capítulo 41</div>
-                </div>
-            </a>
-
-            <!-- Bad Think Diary - FINALIZADO +18 -->
-            <a href="https://yuriscan.top/manga/bad-thinking-diary/" class="manga-card" data-title="bad think diary">
-                <div class="card-image">
-                    <img src="https://i.ibb.co/LzmP7c2f/Bad-Thinking-Diary-Manhwa-Yuri-193x278.webp" 
-                         alt="Bad Thinking Diary Capa"
+                    <img src="https://lilymanga.net/wp-content/uploads/2023/04/Ruthless-UNCENSORED-Yuri-Manhwa-1-193x278.webp" 
+                         alt="Ruthless Capa"
                          onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
                     <span class="badge-adult">+18</span>
-                    <div class="badge-container">
-                        <span class="card-badge badge-status finalizado">Finalizado</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <div class="card-title">Bad Think Diary</div>
-                    <div class="card-status-wrapper">
-                        <span class="card-status finalizado">✓ Finalizado</span>
-                        <span class="card-status adult">+18</span>
-                    </div>
-                    <div class="card-chapter">Capítulo 60</div>
-                </div>
-            </a>
-            
-            <!-- O cara que estou a fim não é um cara?! - EM ANDAMENTO -->
-            <a href="https://yuriscan.top/manga/he-guy-she-was-interested-in-wasnt-a-guy-at-all/" class="manga-card" data-title="o cara que estou a fim não é um cara">
-                <div class="card-image">
-                    <img src="https://i.ibb.co/0pz7tqps/The-Guy-She-Was-Interested-in-Wasnt-a-Guy-at-All-Manga-GL-1-193x278.webp" 
-                         alt="O cara que estou a fim não é um cara?! Capa"
-                         onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
+                    <span class="badge-new">NEW!</span>
                     <div class="badge-container">
                         <span class="card-badge badge-status">Em Andamento</span>
                     </div>
                 </div>
                 <div class="card-content">
-                    <div class="card-title">O cara que estou a fim não é um cara?!</div>
+                    <div class="card-title">Ruthless (sem censura)</div>
                     <div class="card-status-wrapper">
                         <span class="card-status andamento">⚡ Em Andamento</span>
+                        <span class="card-status adult">+18</span>
                     </div>
-                    <div class="card-chapter">Capítulo 8</div>
+                    <div class="card-chapter">Capítulo 01</div>
+                </div>
+            </a>
+
+            <!-- Bad Think Diary (oficial) - EM ANDAMENTO +18 -->
+            <a href="https://yuriscan.top/manga/bad-think-diary-oficial/" class="manga-card" data-title="bad think diary oficial">
+                <div class="card-image">
+                    <img src="https://lilymanga.net/wp-content/uploads/2023/05/BAD-THINKING-DIARY-OFFICIAL-1-193x278.webp" 
+                         alt="Bad Think Diary Oficial Capa"
+                         onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
+                    <span class="badge-adult">+18</span>
+                    <span class="badge-new">NEW!</span>
+                    <div class="badge-container">
+                        <span class="card-badge badge-status">Em Andamento</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Bad Think Diary (oficial)</div>
+                    <div class="card-status-wrapper">
+                        <span class="card-status andamento">⚡ Em Andamento</span>
+                        <span class="card-status adult">+18</span>
+                    </div>
+                    <div class="card-chapter">Capítulo 01</div>
+                </div>
+            </a>
+            
+            <!-- Murmur - EM ANDAMENTO +18 -->
+            <a href="https://yuriscan.top/manga/murmur/" class="manga-card" data-title="murmur">
+                <div class="card-image">
+                    <img src="https://lilymanga.net/wp-content/uploads/2026/01/Murmur-GL-Manhwa-1-193x278.webp" 
+                         alt="Murmur Capa"
+                         onerror="this.src='https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png'; this.onerror=null;">
+                    <span class="badge-adult">+18</span>
+                    <span class="badge-new">NEW!</span>
+                    <div class="badge-container">
+                        <span class="card-badge badge-status">Em Andamento</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">Murmur</div>
+                    <div class="card-status-wrapper">
+                        <span class="card-status andamento">⚡ Em Andamento</span>
+                        <span class="card-status adult">+18</span>
+                    </div>
+                    <div class="card-chapter">Capítulo 01</div>
                 </div>
             </a>
         </div>
