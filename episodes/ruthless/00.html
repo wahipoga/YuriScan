@@ -126,16 +126,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.25rem; /* Reduzido de 1.5rem para 0.25rem */
-            margin: 1rem 0; /* Reduzido de 2rem para 1rem */
+            gap: 0.25rem;
+            margin: 1rem 0;
         }
 
         .page-image {
             max-width: 100%;
-            border-radius: 0; /* Removido border-radius */
             overflow: hidden;
-            border: none; /* Removido border */
-            /* Removido transition e hover */
         }
 
         .page-image img {
@@ -169,6 +166,45 @@
             color: var(--text-primary);
         }
 
+        /* BOTÃO VOLTAR AO TOPO */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), #ff9bb3);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 123, 156, 0.4);
+            transition: all 0.3s;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            border: 2px solid var(--text-primary);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 123, 156, 0.6);
+            scale: 1.1;
+        }
+
+        .back-to-top svg {
+            width: 30px;
+            height: 30px;
+            fill: #0a0c0f;
+        }
+
         /* Footer */
         footer {
             background-color: #0f1217;
@@ -197,9 +233,21 @@
                 padding: 1.5rem 1rem;
             }
             
-            /* Distância ainda menor no mobile */
             .images-container {
                 gap: 0.15rem;
+            }
+            
+            /* Botão menor no mobile */
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .back-to-top svg {
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
@@ -325,9 +373,36 @@
         <script>(function(s){s.dataset.zone='10679703',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     </main>
 
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+        </svg>
+    </button>
+
     <!-- Footer -->
     <footer>
         © 2025 YuriScan • Feito com 💗 para fãs de Yuri
     </footer>
+
+    <script>
+        // Função para voltar ao topo
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Mostrar/esconder botão baseado no scroll
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
