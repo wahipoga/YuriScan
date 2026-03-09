@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="monetag" content="6fe1c92e3fc06847c7360277151ab602">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>YuriScan - Leitura: Ruthless Capítulo 01</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
+    <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/Df60WbW7/381-Sem-T-tulo-20260302131259.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --bg-primary: #0a0c0f;
+            --bg-secondary: #14181c;
+            --bg-card: #1e2329;
+            --accent: #ff7b9c;
+            --accent-hover: #ff9bb3;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b8c5;
+            --border-color: #2a313c;
+            --header-height: 70px;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0f1217;
+            border-bottom: 2px solid var(--accent);
+            padding: 0.8rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            min-height: var(--header-height);
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), #ffa7b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            background: none;
+            -webkit-text-fill-color: var(--accent);
+            font-weight: 300;
+        }
+
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 4%;
+            flex: 1;
+        }
+
+        /* Card do capítulo */
+        .chapter-card {
+            background: linear-gradient(145deg, #1a1217, #1e1a1d);
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .manga-title {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-title {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Botão */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-voltar:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Área de imagens - DISTÂNCIA REDUZIDA */
+        .images-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem; /* Reduzido de 1.5rem para 0.25rem */
+            margin: 1rem 0; /* Reduzido de 2rem para 1rem */
+        }
+
+        .page-image {
+            max-width: 100%;
+            border-radius: 0; /* Removido border-radius */
+            overflow: hidden;
+            border: none; /* Removido border */
+            /* Removido transition e hover */
+        }
+
+        .page-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Seção de Comentários */
+        .comments-section {
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        .comments-title {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Estilo para o Disqus */
+        #disqus_thread {
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1217;
+            border-top: 2px solid var(--accent);
+            padding: 2rem 4%;
+            margin-top: 3rem;
+            text-align: center;
+            color: #4a525f;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .chapter-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .btn-voltar {
+                width: 100%;
+            }
+            
+            .comments-title {
+                font-size: 1.5rem;
+            }
+            
+            .comments-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            /* Distância ainda menor no mobile */
+            .images-container {
+                gap: 0.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="https://yuriscan.top" class="logo">Yuri<span>Scan</span></a>
+    </nav>
+
+    <main class="container">
+        <!-- Card com título e capítulo -->
+        <div class="chapter-card">
+            <h1 class="manga-title">Ruthless</h1>
+            <div class="chapter-title">Episodio 0</div>
+            
+            <!-- Botão voltar para infos -->
+            <a href="https://yuri-scan.blogspot.com/2026/03/ruthless.html" class="btn-voltar">
+                <span>←</span> Voltar para informações do mangá
+            </a>
+        </div>
+
+        <!-- Imagens do capítulo - SEM ESPAÇO ENTRE ELAS -->
+        <div class="images-container">
+            <!-- Página 1 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/yAipzS7.png" 
+                     alt="Página 1"
+                     onerror="this.src='https://i.imgur.com/yAipzS7.png'">
+            </div>
+            
+            <!-- Página 2 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/xFFxp7p.png" 
+                     alt="Página 2"
+                     onerror="this.src='https://i.imgur.com/xFFxp7p.png'">
+            </div>
+            
+            <!-- Página 3 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/SfLVP0h.png" 
+                     alt="Página 3"
+                     onerror="this.src='https://i.imgur.com/SfLVP0h.png'">
+            </div>
+            
+            <!-- Página 4 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/DTVAwzU.png" 
+                     alt="Página 4"
+                     onerror="this.src='https://i.imgur.com/DTVAwzU.png'">
+            </div>
+            
+            <!-- Página 5 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/Wa5C0Ad.png" 
+                     alt="Página 5"
+                     onerror="this.src='https://i.imgur.com/Wa5C0Ad.png'">
+            </div>
+            
+            <!-- Página 6 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/fyLo5cP.png" 
+                     alt="Página 6"
+                     onerror="this.src='https://i.imgur.com/fyLo5cP.png'">
+            </div>
+            
+            <!-- Página 7 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/UHp5zt6.png" 
+                     alt="Página 7"
+                     onerror="this.src='https://i.imgur.com/UHp5zt6.png'">
+            </div>
+            
+            <!-- Página 8 -->
+            <div class="page-image">
+                <img src="https://i.imgur.com/7ZbyACl.png" 
+                     alt="Página 8"
+                     onerror="this.src='https://i.imgur.com/7ZbyACl.png'">
+            </div>
+        </div>
+        
+
+        <!-- Botão adicional no final -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="https://yuri-scan.blogspot.com/2026/03/ruthless.html" class="btn-voltar">
+                <span>📖</span> Voltar para informações do mangá
+            </a>
+        </div>
+
+        <!-- SEÇÃO DE COMENTÁRIOS DO DISQUS -->
+        <div class="comments-section">
+            <div class="comments-title">
+                <span>💬</span>
+                COMENTÁRIOS
+                <span>💬</span>
+            </div>
+            
+            <!-- Código do Disqus -->
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                */
+                
+                var disqus_config = function () {
+                    this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = 'ruthless-cap1'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://yuri-8.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Por favor, ative o JavaScript para ver os <a href="https://disqus.com/?ref_noscript">comentários powered by Disqus.</a></noscript>
+        </div>
+
+        <!-- Anúncios -->
+        <script>(function(s){s.dataset.zone='10679694',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+        <script>(function(s){s.dataset.zone='10679703',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 YuriScan • Feito com 💗 para fãs de Yuri
+    </footer>
+</body>
+</html>
